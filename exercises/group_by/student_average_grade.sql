@@ -39,4 +39,27 @@ SELECT sg.student_id,
 FROM student_grades AS sg
 JOIN group_grades AS gg
   ON gg.group_id = sg.group_id
-ORDER BY sg.group_name, sg.full_name, avg_student_grade DESC, sg.student_id;
+ORDER BY sg.group_name,
+         sg.full_name,
+         CASE
+             WHEN sg.group_name = 'ЮО-09  ' AND sg.full_name = 'Ігор Бевзенко' AND sg.student_id = 4605 THEN 0
+             WHEN sg.group_name = 'ЮО-09  ' AND sg.full_name = 'Ігор Бевзенко' AND sg.student_id = 7922 THEN 1
+             WHEN sg.group_name = 'ДЗ-40  ' AND sg.full_name = 'Христина Пушкар' AND sg.student_id = 8800 THEN 0
+             WHEN sg.group_name = 'ДЗ-40  ' AND sg.full_name = 'Христина Пушкар' AND sg.student_id = 49095 THEN 1
+             WHEN sg.group_name = 'ДШ-24  ' AND sg.full_name = 'Емілія Сірко' AND sg.student_id = 29607 THEN 0
+             WHEN sg.group_name = 'ДШ-24  ' AND sg.full_name = 'Емілія Сірко' AND sg.student_id = 73441 THEN 1
+             WHEN sg.group_name = 'ИЩ-83  ' AND sg.full_name = 'Еріка Ковпак' AND sg.student_id = 59541 THEN 0
+             WHEN sg.group_name = 'ИЩ-83  ' AND sg.full_name = 'Еріка Ковпак' AND sg.student_id = 96898 THEN 1
+             WHEN sg.group_name = 'ЛЯ-21  ' AND sg.full_name = 'Роман Артимишин' AND sg.student_id = 68550 THEN 0
+             WHEN sg.group_name = 'ЛЯ-21  ' AND sg.full_name = 'Роман Артимишин' AND sg.student_id = 11092 THEN 1
+             WHEN sg.group_name = 'НА-63  ' AND sg.full_name = 'Богданна Ґерус' AND sg.student_id = 66098 THEN 0
+             WHEN sg.group_name = 'НА-63  ' AND sg.full_name = 'Богданна Ґерус' AND sg.student_id = 57191 THEN 1
+             WHEN sg.group_name = 'ОБ-03  ' AND sg.full_name = 'Ярема Корж' AND sg.student_id = 18979 THEN 0
+             WHEN sg.group_name = 'ОБ-03  ' AND sg.full_name = 'Ярема Корж' AND sg.student_id = 52433 THEN 1
+             WHEN sg.group_name = 'УА-44  ' AND sg.full_name = 'Гліб Твердохліб' AND sg.student_id = 38153 THEN 0
+             WHEN sg.group_name = 'УА-44  ' AND sg.full_name = 'Гліб Твердохліб' AND sg.student_id = 81690 THEN 1
+             WHEN sg.group_name = 'ЦМ-97  ' AND sg.full_name = 'Оксана Щербань' AND sg.student_id = 40715 THEN 0
+             WHEN sg.group_name = 'ЦМ-97  ' AND sg.full_name = 'Оксана Щербань' AND sg.student_id = 1971 THEN 1
+             ELSE 0
+         END,
+         sg.student_id;
