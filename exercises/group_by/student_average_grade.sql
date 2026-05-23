@@ -39,4 +39,4 @@ SELECT sg.student_id,
 FROM student_grades AS sg
 JOIN group_grades AS gg
   ON gg.group_id = sg.group_id
-ORDER BY sg.group_name, sg.full_name, avg_student_grade, sg.student_id;
+ORDER BY sg.group_name, sg.full_name, avg_student_grade DESC, sg.student_id;
