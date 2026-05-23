@@ -30,4 +30,4 @@ JOIN person AS p
   ON p.person_id = s.person_id
 CROSS JOIN average_course_count AS acc
 WHERE scc.course_number > acc.avg_number
-ORDER BY scc.course_number DESC, full_name;
+ORDER BY scc.course_number DESC, full_name, scc.student_id;
